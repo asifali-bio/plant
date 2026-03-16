@@ -128,9 +128,9 @@ $$
 
 Where:
 
-- **D_j** = abundance of protein domain *j*
-- **E_i** = expression level of transcript *i*
-- **A_{ij}** = annotation indicator (1 if transcript *i* contains domain *j*, otherwise 0)
+- $D_j$ = abundance of protein domain *j*
+- $E_i$ = expression level of transcript *i*
+- $A_{ij}$ = annotation indicator (1 if transcript *i* contains domain *j*, otherwise 0)
 
 Thus, the abundance of each protein domain is calculated by summing the expression levels of all transcripts containing that domain.
 
