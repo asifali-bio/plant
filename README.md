@@ -40,28 +40,20 @@ This representation enables **comparative functional genomics across species**, 
 
 ## Method Overview
 
-```
-                 RNA-seq Reads
-                      │
-                      ▼
-               Trinity Assembly
-                      │
-                      ▼
-                 Transcriptome
-                      │
-        ┌─────────────┴─────────────┐
-        ▼                           ▼
-    InterProScan                kallisto
-    (Pfam / GO)               (abundance)
-        │                           │
-        └─────────────┬─────────────┘
-                      ▼
-               R Integration
-          (annotation + abundance)
-                      ▼
-          Functional Domain Matrix
-                      ▼
-       Cross-Species Functional Analysis
+```mermaid
+flowchart TD
+
+A[RNA-seq Reads] --> B[Trinity Assembly]
+B --> C[Transcriptome]
+
+C --> D[InterProScan<br/>(Pfam / GO)]
+C --> E[kallisto<br/>(abundance)]
+
+D --> F[R Integration<br/>(annotation + abundance)]
+E --> F
+
+F --> G[Functional Domain Matrix]
+G --> H[Cross-Species Functional Analysis]
 ```
 
 The workflow consists of the following stages:
