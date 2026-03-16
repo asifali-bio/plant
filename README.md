@@ -46,7 +46,7 @@ flowchart TD
 A[RNA-seq Reads] --> B[Trinity Assembly]
 B --> C[Transcriptome]
 
-subgraph Annotation and Quantification
+subgraph Annotation + Quantification
 D[InterProScan Pfam GO]
 E[kallisto abundance]
 end
@@ -54,7 +54,7 @@ end
 C --> D
 C --> E
 
-D --> F[R Integration]
+D --> F[R Integration (annotation × abundance)]
 E --> F
 
 F --> G[Functional Domain Matrix]
