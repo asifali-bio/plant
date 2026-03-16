@@ -190,7 +190,7 @@ The output will produce merged annotation–expression tables suitable for downs
 
 An **analogue sequence similarity algorithm** has been developed and will be incorporated in a future update.
 
-This feature will be used to highlight clusters of **highly similar sequences** across transcriptomes, enabling a more focused analysis of conserved proteins and shared functional elements between species.
+This feature will be used to highlight clusters of **highly similar sequences** across transcriptomes, enabling a more refined analysis of conserved proteins and shared functional elements between species.
 
 ---
 
