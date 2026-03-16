@@ -43,7 +43,17 @@ This representation enables **comparative functional genomics across species**, 
 ```mermaid
 flowchart TD
 
-A[RNA-seq Reads] --> B[Trinity Assembly] B --> C[Transcriptome] C --> D[InterProScan (Pfam / GO)] C --> E[kallisto (abundance)] D --> F[R Integration: annotation + abundance] E --> F F --> G[Functional Domain Matrix] G --> H[Cross-Species Functional Analysis]
+A[RNA-seq Reads] --> B[Trinity Assembly]
+B --> C[Transcriptome]
+
+C --> D[InterProScan (Pfam / GO)]
+C --> E[kallisto (abundance)]
+
+D --> F[R Integration: annotation + abundance]
+E --> F
+
+F --> G[Functional Domain Matrix]
+G --> H[Cross-Species Functional Analysis]
 ```
 
 The workflow consists of the following stages:
