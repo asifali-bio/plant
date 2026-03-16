@@ -89,9 +89,37 @@ Traditional comparative genomics focuses on orthologous gene comparisons. In con
 
 This framework enables analysis of:
 
-- functional innovations across lineages  
-- domain enrichment patterns  
-- species-specific molecular functions  
+- functional innovations across lineages
+- domain enrichment patterns
+- species-specific molecular functions
+
+```
+Functional annotation
+(InterProScan)
+
+Blue crayon  → Pfam domain A
+Red crayon   → Pfam domain B
+Green crayon → Pfam domain C
+
+
+Expression quantification
+(kallisto)
+
+3 blue crayons
+5 red crayons
+1 green crayon
+
+PLANT integration
+
+Domain abundance profile:
+
+Pfam A  ███
+Pfam B  █████
+Pfam C  █
+```
+
+Each species therefore becomes a **functional domain distribution**, allowing
+cross-species comparison without requiring gene-level orthology.
 
 ---
 
@@ -101,8 +129,8 @@ Cross-species normalization is not performed.
 
 Typical RNA-seq normalization assumes:
 
-- most genes are not differentially expressed  
-- total transcript abundance is comparable between samples  
+- most genes are not differentially expressed
+- total transcript abundance is comparable between samples
 
 These assumptions do not hold for **comparisons across species with divergent transcriptomes**.
 
