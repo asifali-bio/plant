@@ -92,17 +92,18 @@ Traditional comparative genomics focuses on orthologous gene comparisons. In con
 Functional annotation
 (InterProScan)
 
-Blue crayon  → Pfam domain A
-Red crayon   → Pfam domain B
-Green crayon → Pfam domain C
+Pfam domain A → Red crayon
+Pfam domain B → Green crayon
+Pfam domain C → Blue crayon
 
 
 Expression quantification
 (kallisto)
 
-3 blue crayons
-5 red crayons
-1 green crayon
+3 red crayons
+5 green crayons
+1 blue crayon
+
 
 PLANT integration
 
@@ -188,9 +189,29 @@ The output will produce merged annotation–expression tables suitable for downs
 
 ## Future Development
 
-An **analogue sequence similarity algorithm** has been developed and will be incorporated in a future update.
+A sequence similarity filtering method has been developed and will be
+incorporated in a future update.
 
-This feature will be used to highlight clusters of **highly similar sequences** across transcriptomes, enabling a more refined analysis of conserved proteins and shared functional elements between species.
+This method introduces a **similarity threshold parameter** that allows
+users to control how strictly sequences are matched across transcriptomes.
+
+The threshold can be adjusted from **0–100% sequence similarity**:
+
+- **0%** — all annotated protein domains are included in the comparison  
+- **Intermediate values** — only domains associated with increasingly
+  similar sequences are retained  
+- **100%** — only domains derived from **exact or near-exact homologs**
+  are included
+
+By gradually increasing the similarity threshold, users can observe how
+functional domain distributions change as sequence similarity constraints
+become more stringent.
+
+This approach enables exploration of **inflection points in functional
+similarity**, revealing where conserved protein families dominate or where
+functional divergence emerges between species.
+
+The similarity threshold acts as a **dial controlling evolutionary stringency**, allowing functional comparisons to transition smoothly from broad domain-level similarity to exact homolog matching.
 
 ---
 
