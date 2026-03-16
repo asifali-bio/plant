@@ -54,7 +54,7 @@ end
 C --> D
 C --> E
 
-D --> F[R Integration (annotation × abundance)]
+D --> F[R Integration]
 E --> F
 
 F --> G[Functional Domain Matrix]
