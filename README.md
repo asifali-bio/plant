@@ -1,21 +1,158 @@
-**Functional Genomics and Comparative Systems Biology**
+# PLANT — ParaLLeL ANNotatioN of Transcriptomes
 
+### Mapping transcriptomes into functional protein domain space for cross-species comparison
 
+PLANT is a comparative transcriptomics workflow that integrates **protein domain annotation** with **RNA-seq expression quantification** to construct functional expression profiles across species.
 
-This pipeline allows for de novo RNA-seq analysis across different species by merging structural annotation with expression quantification. Reads were assembled via Trinity. Then, protein domains were predicted and gene expression was estimated via InterProScan and kallisto, respectively. Once we have the output files from InterProScan and kallisto, we use R to merge the GO/Pfam annotations with the abundance information to obtain a distribution of annotations. The R code contained in this repository assumes that both InterProScan and kallisto output files are ready to be processed and used as input files.
+The framework treats **evolutionary divergence as a treatment condition**, allowing transcriptomes from different species to be compared through the **distribution of functional protein domains** rather than direct gene homology.
 
+---
 
+## Table of Contents
 
-This method treats evolutionary time as a treatment condition. There is no normalization step due to the vast differences in expression profiles across different species. Normalization would assume that most homologs are not differentially expressed and that total gene expression is equal across species. Quantification of the mRNA expression levels allows us to assess within species variance, as read counts measure relative abundance per species rather than absolute abundance.
+- [Overview](#overview)
+- [Pipeline Overview](#pipeline-overview)
+- [Conceptual Framework](#conceptual-framework)
+- [Normalization Strategy](#normalization-strategy)
+- [Primary Use Case](#primary-use-case)
+- [Input Requirements](#input-requirements)
+- [Running the Analysis](#running-the-analysis)
+- [Future Development](#future-development)
+- [Summary](#summary)
 
+---
 
+## Overview
 
-The main purpose of this method is to identify species-specific transcripts that translate to proteins containing a protein domain not found in other species.
+PLANT merges two complementary sources of information:
 
+| Data source | Information captured |
+|-------------|---------------------|
+| InterProScan | Functional identity (Pfam domains, GO terms) |
+| kallisto | Transcript abundance |
 
+By combining these datasets, PLANT generates a **domain-weighted functional expression matrix** describing the distribution of biological functions within each transcriptome.
 
-To run the function, name the abundance and annotation input files in a similar format as well as the species list CSV file. In R, set the working directory to the same location as the input files. Run the code line by line.
+This representation enables **comparative functional genomics across species**, even when orthology relationships are unclear.
 
+---
 
+## Method Overview
 
-An analogue sequence similarity algorithm has been developed and will be implemented in a future update.
+```
+                 RNA-seq Reads
+                      │
+                      ▼
+               Trinity Assembly
+                      │
+                      ▼
+                 Transcriptome
+                      │
+        ┌─────────────┴─────────────┐
+        ▼                           ▼
+    InterProScan                kallisto
+    (Pfam / GO)               (abundance)
+        │                           │
+        └─────────────┬─────────────┘
+                      ▼
+               R Integration
+        (annotation + abundance)
+                      ▼
+          Functional Domain Matrix
+                      ▼
+       Cross-Species Functional Analysis
+```
+
+The workflow consists of the following stages:
+
+1. **RNA-seq assembly**  
+   Transcriptomes are assembled from sequencing reads using **Trinity**.
+
+2. **Functional annotation**  
+   Predicted proteins are annotated using **InterProScan**, identifying Pfam domains and Gene Ontology terms.
+
+3. **Expression quantification**  
+   Transcript abundance is estimated using **kallisto**.
+
+4. **Data integration**  
+   Custom **R scripts** merge annotation results with abundance estimates to compute domain-level expression distributions.
+
+The resulting dataset represents a **matrix of functional annotations weighted by transcript abundance**.
+
+---
+
+## Conceptual Framework
+
+PLANT treats **evolutionary divergence as a treatment condition**.
+
+Traditional comparative genomics focuses on orthologous gene comparisons. In contrast, PLANT compares **functional domain abundance profiles**, allowing biological functions to be compared even when gene homology is uncertain.
+
+This framework enables analysis of:
+
+- functional innovations across lineages  
+- domain enrichment patterns  
+- species-specific molecular functions  
+
+---
+
+## Normalization Strategy
+
+Cross-species normalization is not performed.
+
+Typical RNA-seq normalization assumes:
+
+- most genes are not differentially expressed  
+- total transcript abundance is comparable between samples  
+
+These assumptions do not hold for **comparisons across species with divergent transcriptomes**.
+
+Instead, transcript abundance values are interpreted **within species**, where read counts represent relative transcript abundance.
+
+---
+
+## Primary Use Case
+
+The pipeline is designed to identify:
+
+- **species-specific transcripts**
+- **unique protein domain enrichments**
+- **functional innovations across evolutionary lineages**
+
+In particular, PLANT can detect transcripts encoding **protein domains that are present in one species but absent in others**.
+
+---
+
+## Input Requirements
+
+The R scripts assume that the following files are available:
+
+- **InterProScan output files**
+- **kallisto abundance files**
+- **species list CSV file**
+
+Input files should follow a consistent naming convention.
+
+---
+
+## Running the Analysis
+
+1. Place all input files in the same directory as the R scripts.
+2. Open R or RStudio.
+3. Set the working directory to the folder containing the input files.
+4. Run the script line-by-line.
+
+The output will produce merged annotation–expression tables suitable for downstream comparative analysis and visualization.
+
+---
+
+## Future Development
+
+An **analogue sequence similarity algorithm** has been developed and will be incorporated into a future update. This method will improve functional comparisons across highly divergent sequences where conventional homology detection is limited.
+
+---
+
+## Summary
+
+PLANT transforms transcriptome data into a **quantitative distribution of functional protein domains**, enabling comparative analysis of transcriptomes in terms of **functional composition rather than gene identity**.
+
+This approach provides a scalable framework for **comparative systems biology across evolutionary time**.
