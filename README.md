@@ -13,6 +13,7 @@ The framework treats **evolutionary divergence as a treatment condition**, allow
 - [Overview](#overview)
 - [Pipeline Overview](#pipeline-overview)
 - [Conceptual Framework](#conceptual-framework)
+- [Mathematical Interpretation](#mathematical-interpretation)
 - [Normalization Strategy](#normalization-strategy)
 - [Primary Use Case](#primary-use-case)
 - [Input Requirements](#input-requirements)
@@ -56,7 +57,7 @@ This representation enables **comparative functional genomics across species**, 
         └─────────────┬─────────────┘
                       ▼
                R Integration
-        (annotation + abundance)
+          (annotation + abundance)
                       ▼
           Functional Domain Matrix
                       ▼
@@ -86,12 +87,6 @@ The resulting dataset represents a **matrix of functional annotations weighted b
 PLANT treats **evolutionary divergence as a treatment condition**.
 
 Traditional comparative genomics focuses on orthologous gene comparisons. In contrast, PLANT compares **functional domain abundance profiles**, allowing biological functions to be compared even when gene homology is uncertain.
-
-This framework enables analysis of:
-
-- functional innovations across lineages
-- domain enrichment patterns
-- species-specific molecular functions
 
 ```
 Functional annotation
@@ -123,6 +118,24 @@ cross-species comparison without requiring gene-level orthology.
 
 ---
 
+## Mathematical Interpretation
+
+PLANT aggregates transcript expression into protein domain abundance:
+
+$$
+D_j = \sum_i E_i A_{ij}
+$$
+
+Where:
+
+- **D_j** = abundance of protein domain *j*
+- **E_i** = expression level of transcript *i*
+- **A_{ij}** = annotation indicator (1 if transcript *i* contains domain *j*, otherwise 0)
+
+Thus, the abundance of each protein domain is calculated by summing the expression levels of all transcripts containing that domain.
+
+---
+
 ## Normalization Strategy
 
 Cross-species normalization is not performed.
@@ -142,8 +155,8 @@ Instead, transcript abundance values are interpreted **within species**, where r
 
 The pipeline is designed to identify:
 
-- **species-specific transcripts**
-- **unique protein domain enrichments**
+- **species-specific molecular functions and transcripts**
+- **unique protein domain enrichment patterns**
 - **functional innovations across evolutionary lineages**
 
 In particular, PLANT can detect transcripts encoding **protein domains that are present in one species but absent in others**.
