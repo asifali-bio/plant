@@ -4,7 +4,7 @@
 
 PLANT is a comparative transcriptomics workflow that integrates **protein domain annotation** with **RNA-seq expression quantification** to construct functional expression profiles across species.
 
-The framework treats **evolutionary divergence as a treatment condition**, allowing transcriptomes from different species to be compared through the **distribution of functional protein domains** rather than direct gene homology.
+The framework treats **evolutionary divergence as a treatment condition**, allowing transcriptomes from different species to be compared through the **composition of functional protein domains** rather than direct gene homology.
 
 ---
 
@@ -188,7 +188,9 @@ The output will produce merged annotation–expression tables suitable for downs
 
 ## Future Development
 
-An **analogue sequence similarity algorithm** has been developed and will be incorporated into a future update. This method will improve functional comparisons across highly divergent sequences where conventional homology detection is limited.
+An **analogue sequence similarity algorithm** has been developed and will be incorporated in a future update.
+
+This feature will be used to highlight clusters of **highly similar sequences** across transcriptomes, enabling a more focused analysis of conserved proteins and shared functional elements between species.
 
 ---
 
