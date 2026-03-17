@@ -22,10 +22,10 @@ Abundance and annotation files should be named using a **consistent numbering sc
 Example:
 
 ```
-species1_abundance.tsv
-species1_annotation.tsv
-species2_abundance.tsv
-species2_annotation.tsv
+abundance1.tsv
+annotation1.tsv
+abundance2.tsv
+annotation2.tsv
 ```
 
 The numbering should match the order of species listed in the species list CSV file.
@@ -35,16 +35,16 @@ The numbering should match the order of species listed in the species list CSV f
 The species list file can be created using spreadsheet software such as **Microsoft Excel**:
 
 1. Enter each species name in **Column A**, with **one species per row**
-2. Ensure the order corresponds to the numbered abundance and annotation files
-3. Export or save the file as **CSV format**
+2. Do **not include a header**.
+3. Ensure the order corresponds to the numbered abundance and annotation files
+4. Export or save the file as **CSV format**
 
 Example:
 
 ```
-species_name
-Homo_sapiens
-Mus_musculus
-Danio_rerio
+sapiens
+neanderthalensis
+erectus
 ```
 
 ## Running the R Code
