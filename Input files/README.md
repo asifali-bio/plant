@@ -26,6 +26,8 @@ abundance1.tsv
 annotation1.tsv
 abundance2.tsv
 annotation2.tsv
+abundance3.tsv
+annotation3.tsv
 ```
 
 The numbering should match the order of species listed in the species list CSV file.
