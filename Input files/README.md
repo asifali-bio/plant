@@ -44,9 +44,9 @@ The species list file can be created using spreadsheet software such as **Micros
 Example:
 
 ```
-sapiens
-neanderthalensis
-erectus
+arabica
+canephora
+liberica
 ```
 
 ## Running the R Code
