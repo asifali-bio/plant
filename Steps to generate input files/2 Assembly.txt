@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 #SBATCH --verbose
 #SBATCH --job-name=trinity
@@ -8,6 +8,7 @@
 #SBATCH --mem=120GB
 
 
+module purge
 module load trinity/intel/2.3.2
 
 Trinity --seqType fq --CPU 12 --max_memory 128G --left ABIJ_1.fastq --right ABIJ_2.fastq --SS_lib_type RF --output Trinity_ABIJ --min_contig_length 200

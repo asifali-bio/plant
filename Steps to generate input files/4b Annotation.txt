@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 #SBATCH --verbose
-#SBATCH --job-name=inter
+#SBATCH --job-name=interproscan
 #SBATCH --time=47:30:00
 #SBATCH --nodes=4
-#SBATCH --tasks-per-node=1
+#SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=20
 #SBATCH --exclusive
 #SBATCH --mem=60GB
