@@ -7,7 +7,7 @@ This directory contains the input files required to run the R workflow.
 The analysis requires three types of input files:
 
 1. **Abundance files**  
-   Generated from **Kallisto output**
+   Generated from **kallisto output**
 
 2. **Annotation files**  
    Generated from **InterProScan output**

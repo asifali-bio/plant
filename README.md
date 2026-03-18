@@ -178,7 +178,7 @@ Input files should follow a consistent naming convention.
 1. Place all input files in the same directory as the R scripts.
 2. Open R or RStudio.
 3. Set the working directory to the folder containing the input files.
-4. Run the script line-by-line.
+4. Run the script line by line.
 
 The output will produce merged annotation–expression tables suitable for downstream comparative analysis and visualization.
 

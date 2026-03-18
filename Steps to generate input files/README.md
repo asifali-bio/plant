@@ -4,7 +4,7 @@ This directory contains the scripts and job files used to generate the input fil
 
 The scripts were originally executed on the **NYU Prince HPC cluster** using Unix command-line tools and **SLURM job scheduling**. Each numbered file in this directory corresponds to a step in the pipeline.
 
-The Trinity transcriptome assemblies used in the analysis are included in this folder in **.zip** and **.7z** formats.
+The Trinity transcriptome assemblies used in the analysis are included in the `Trinity` folder in **.zip** and **.7z** formats.
 
 ---
 
