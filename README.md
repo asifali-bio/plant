@@ -89,7 +89,7 @@ Traditional comparative genomics focuses on orthologous gene comparisons. In con
 Functional annotation
 (InterProScan)
 
-Red crayon   → Pfam domain A + C
+Red crayon   → Pfam domain A+C
 Green crayon → Pfam domain B
 Blue crayon  → Pfam domain C
 
