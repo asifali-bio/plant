@@ -89,17 +89,17 @@ Traditional comparative genomics focuses on orthologous gene comparisons. In con
 Functional annotation
 (InterProScan)
 
-Pfam domain A → Red crayon
-Pfam domain B → Green crayon
-Pfam domain C → Blue crayon
+Red crayon   → Pfam domain A + C
+Green crayon → Pfam domain B
+Blue crayon  → Pfam domain C
 
 
 Expression quantification
 (kallisto)
 
-3 red crayons
-5 green crayons
-1 blue crayon
+3 Red crayons
+5 Green crayons
+1 Blue crayon
 
 
 PLANT integration
@@ -108,7 +108,7 @@ Domain abundance profile:
 
 Pfam A  ███
 Pfam B  █████
-Pfam C  █
+Pfam C  ████
 ```
 
 Each species therefore becomes a **functional domain distribution**, allowing
