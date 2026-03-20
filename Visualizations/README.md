@@ -6,7 +6,7 @@ This directory contains interactive Plotly visualizations exported as standalone
 To view a visualization:
 
 1. Click on the `.html` file
-2. Click **Download** or **View raw**
+2. Click **Download**
 3. Open the file locally in a web browser (Chrome, Firefox, Edge, Safari)
 
 No additional dependencies are required.
@@ -29,6 +29,9 @@ No additional dependencies are required.
   - Uses a perceptually uniform viridis color scale
   - Each species shares the same gradient
   - Color transitions from yellow to dark blue
+  - Dark blue regions tend to be visually enriched for differentiation between species
+  - Yellow regions tend to highlight more broadly shared or less differentiated patterns
+  - The ordering is determined by the underlying R visualization workflow and preserved as-is
 
 ---
 
@@ -46,6 +49,7 @@ No additional dependencies are required.
   - Uses the same viridis gradient across all species
   - Yellow → green → blue progression
   - Visually resembles ink diffusion or chromatography patterns
+  - Ordering is inherited from the R plotting process and not manually imposed
 
 ---
 
