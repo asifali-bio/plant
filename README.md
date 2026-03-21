@@ -212,6 +212,8 @@ functional divergence emerges between species.
 
 The similarity threshold acts as a **dial controlling evolutionary stringency**, allowing functional comparisons to transition smoothly from broad domain-level similarity to exact homolog matching.
 
+---
+
 ### Single-Cell Functional Embedding via Protein Domains
 
 A planned extension of this framework is the integration of protein domain–level annotation with single-cell RNA sequencing (scRNA-seq) analysis pipelines such as Seurat.
