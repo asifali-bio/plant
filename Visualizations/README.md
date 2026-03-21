@@ -70,7 +70,8 @@ These files are relatively large (~5–10 MB) because they include all data and 
 
 These visualizations are large, self-contained Plotly HTML files.
 
-- They may use significant memory when opened
+- Rendering is GPU-accelerated via WebGL for improved performance
+- File size and JavaScript payload have been reduced
 - Performance is best on systems with ≥16 GB RAM
 - On lower-memory devices (e.g., 8 GB laptops), the browser may become slow or unresponsive
 
