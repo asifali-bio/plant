@@ -81,6 +81,10 @@ for (i in seq(1:numberofspecies)) {
 save(new, new2, file = "Pfam.RData")
 load("Pfam.RData")
 
+#trim
+new$domain <- NULL
+new$tpm <- signif(new$tpm, 4)
+
 #preview plot
 ggplot(new, aes(species, pfam)) +
   geom_point(aes(color = pfam, size = tpm), alpha = 0.3, show.legend = FALSE) +
@@ -90,29 +94,32 @@ ggplot(new, aes(species, pfam)) +
   theme(axis.text.y=element_blank(), axis.ticks.y=element_blank())
 
 #plot of pooled Pfam protein domains per species filtered by e-value
-p1 = plot_ly(x = new$species, y = new$pfam, type = "scatter", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
+p1 = plot_ly(x = new$species, y = new$pfam, type = "scattergl", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
 p1 <- p1 %>% layout(title = "InterProScan x kallisto",
                     xaxis = list(title = "Species"),
                     yaxis = list(title = "Pfam", showticklabels = FALSE),
                     showlegend = FALSE)
 #color by species
+p1 <- partial_bundle(p1)
 p1
 
 
-p2 = plot_ly(x = new$species, y = new$pfam, type = "scatter", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
+p2 = plot_ly(x = new$species, y = new$pfam, type = "scattergl", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
 p2 <- p2 %>% layout(title = "InterProScan x kallisto",
                     xaxis = list(title = "Species", showticklabels = FALSE),
                     yaxis = list(title = "Pfam", showticklabels = FALSE))
 #color by species
+p2 <- partial_bundle(p2)
 p2
 
 
-p3 = plot_ly(x = new$species, y = new$pfam, type = "scatter", mode = "markers", color = new$pfam, size = new$tpm, fill = ~'', colors = viridis(nrow(new2), direction = -1))
+p3 = plot_ly(x = new$species, y = new$pfam, type = "scattergl", mode = "markers", color = new$pfam, size = new$tpm, fill = ~'', colors = viridis(nrow(new2), direction = -1))
 p3 <- p3 %>% layout(title = "InterProScan x kallisto",
                     xaxis = list(title = "Species"),
                     yaxis = list(title = "Pfam", showticklabels = FALSE),
                     showlegend = FALSE)
 #color by annotation
+p3 <- partial_bundle(p3)
 p3
 
 

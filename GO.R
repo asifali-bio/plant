@@ -87,6 +87,9 @@ for (i in seq(1:numberofspecies)) {
 save(new, new2, file = "GO.RData")
 load("GO.RData")
 
+#trim
+new$tpm <- signif(new$tpm, 4)
+
 #preview plot
 ggplot(new, aes(species, go_id)) +
   geom_point(aes(color = go_id, size = tpm), alpha = 0.3, show.legend = FALSE) +
@@ -96,29 +99,32 @@ ggplot(new, aes(species, go_id)) +
   theme(axis.text.y=element_blank(), axis.ticks.y=element_blank())
 
 #plot of pooled GO terms per species
-p1 = plot_ly(x = new$species, y = new$go_id, type = "scatter", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
+p1 = plot_ly(x = new$species, y = new$go_id, type = "scattergl", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
 p1 <- p1 %>% layout(title = "InterProScan x kallisto",
                     xaxis = list(title = "Species"),
                     yaxis = list(title = "GO", showticklabels = FALSE),
                     showlegend = FALSE)
 #color by species
+p1 <- partial_bundle(p1)
 p1
 
 
-p2 = plot_ly(x = new$species, y = new$go_id, type = "scatter", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
+p2 = plot_ly(x = new$species, y = new$go_id, type = "scattergl", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
 p2 <- p2 %>% layout(title = "InterProScan x kallisto",
                     xaxis = list(title = "Species", showticklabels = FALSE),
                     yaxis = list(title = "GO", showticklabels = FALSE))
 #color by species
+p2 <- partial_bundle(p2)
 p2
 
 
-p3 = plot_ly(x = new$species, y = new$go_id, type = "scatter", mode = "markers", color = new$go_id, size = new$tpm, fill = ~'', colors = viridis(nrow(new2), direction = -1))
+p3 = plot_ly(x = new$species, y = new$go_id, type = "scattergl", mode = "markers", color = new$go_id, size = new$tpm, fill = ~'', colors = viridis(nrow(new2), direction = -1))
 p3 <- p3 %>% layout(title = "InterProScan x kallisto",
                     xaxis = list(title = "Species"),
                     yaxis = list(title = "GO", showticklabels = FALSE),
                     showlegend = FALSE)
 #color by annotation
+p3 <- partial_bundle(p3)
 p3
 
 
