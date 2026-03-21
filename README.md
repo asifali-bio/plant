@@ -186,6 +186,8 @@ The output will produce merged annotation–expression tables suitable for downs
 
 ## Future Development
 
+### Sequence Similarity Thresholding
+
 A sequence similarity filtering method has been developed and will be
 incorporated in a future update.
 
@@ -209,6 +211,43 @@ similarity**, revealing where conserved protein families dominate or where
 functional divergence emerges between species.
 
 The similarity threshold acts as a **dial controlling evolutionary stringency**, allowing functional comparisons to transition smoothly from broad domain-level similarity to exact homolog matching.
+
+---
+
+### Single-Cell Functional Embedding via Protein Domains
+
+A planned extension of this framework is the integration of protein domain–level annotation with single-cell RNA sequencing (scRNA-seq) analysis pipelines such as Seurat.
+
+In this approach, gene expression profiles from individual cells are transformed into protein domain abundance vectors using Pfam annotations. This enables each cell to be represented not only in gene expression space, but also in a functional domain space derived from conserved protein features.
+
+#### Conceptual Workflow
+
+1. Perform standard scRNA-seq preprocessing and clustering (e.g., normalization, PCA, UMAP)
+2. Map expressed transcripts to Pfam protein domains
+3. Aggregate gene expression into cell-by-domain matrices
+4. Generate:
+   - Domain-based embeddings (functional clustering)
+   - Joint embeddings combining gene expression and domain features
+
+#### Potential Advantages
+
+- **Functional interpretability**
+  Domain-level features provide biologically meaningful summaries beyond gene-level variation
+
+- **Orthogonal signal integration**
+  Protein domains may capture conserved structure and function not apparent in noisy gene expression data
+
+- **Cross-species compatibility**
+  Domain-based representations enable comparison across species without requiring strict gene orthology
+
+- **Robustness to sparsity**
+  Aggregating genes into domains may reduce the impact of dropout in single-cell data
+
+#### Longer-Term Vision
+
+- Integration with multi-modal frameworks (e.g., RNA + ATAC + protein domains)
+- Domain-level marker discovery for cell type annotation
+- Cross-species single-cell atlas alignment using conserved functional features
 
 ---
 
