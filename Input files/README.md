@@ -45,8 +45,8 @@ Example:
 
 ```
 arabica
-robusta
 liberica
+robusta
 ```
 
 ## Running the R Code
