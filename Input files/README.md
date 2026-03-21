@@ -45,7 +45,7 @@ Example:
 
 ```
 arabica
-canephora
+robusta
 liberica
 ```
 
