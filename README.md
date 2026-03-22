@@ -257,14 +257,14 @@ The proposed single-cell extension can be interpreted mathematically as defining
 
 Let:
 
-- $X \in \mathbb{R}^{n \times g}$: gene expression matrix (cells × genes)
-- $D \in \mathbb{R}^{n \times d}$: domain abundance matrix (cells × domains)
-- $U \in \mathbb{R}^{n \times 2}$: UMAP embedding (cells × 2D coordinates)
+- $X \in \mathbb{ℝ}^{n \times g}$: gene expression matrix (cells × genes)
+- $D \in \mathbb{ℝ}^{n \times d}$: domain abundance matrix (cells × domains)
+- $U \in \mathbb{ℝ}^{n \times 2}$: UMAP embedding (cells × 2D coordinates)
 
 UMAP defines a nonlinear mapping:
 
 $$
-\phi: \mathbb{R}^g \rightarrow \mathbb{R}^2
+\phi: \mathbb{ℝ}^g \rightarrow \mathbb{ℝ}^2
 $$
 
 which assigns each cell $i$ a coordinate:
@@ -305,7 +305,7 @@ This provides a natural interpretation of the proposed visualization:
 For all domains simultaneously:
 
 $$
-f(i) = D_i \in \mathbb{R}^d
+f(i) = D_i \in \mathbb{ℝ}^d
 $$
 
 This defines a **vector-valued function** over the manifold, where each cell is associated with a high-dimensional functional profile.
@@ -315,6 +315,22 @@ In practice, this can be visualized by:
 - selecting individual domains
 - projecting $D_i$ into lower dimensions (e.g., PCA)
 - or computing aggregate functional scores
+
+#### Note on Manifold Pullback
+
+Formally, the domain functions can be interpreted via a pullback onto the UMAP embedding. Let
+
+$$
+\phi : \mathbb{ℝ}^g \to \mathbb{ℝ}^2
+$$
+
+denote the UMAP mapping from gene expression space to the embedded coordinates. Then each domain function defined on cells can be expressed over the embedding as a composition:
+
+$$
+f_k \circ \phi^{-1}
+$$
+
+This provides a mathematical interpretation of domain abundances as functions defined on the learned low-dimensional manifold. In practice, this formulation is approximate, as UMAP does not provide an explicit inverse mapping.
 
 #### Summary
 
