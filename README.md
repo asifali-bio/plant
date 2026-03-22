@@ -251,6 +251,75 @@ Conceptually, this can be extended into a **3D representation**, where:
 
 This transforms the current parallel annotation paradigm into a **spatially integrated functional map of single cells**.
 
+#### Mathematical Interpretation: Functional Fields over UMAP Embeddings
+
+The proposed single-cell extension can be interpreted mathematically as defining protein domain abundances over a low-dimensional manifold learned from gene expression data.
+
+Let:
+
+- $X \in \mathbb{R}^{n \times g}$: gene expression matrix (cells × genes)
+- $D \in \mathbb{R}^{n \times d}$: domain abundance matrix (cells × domains)
+- $U \in \mathbb{R}^{n \times 2}$: UMAP embedding (cells × 2D coordinates)
+
+UMAP defines a nonlinear mapping:
+
+$$
+\phi: \mathbb{R}^g \rightarrow \mathbb{R}^2
+$$
+
+which assigns each cell $i$ a coordinate:
+
+$$
+U_i = (u_i, v_i)
+$$
+
+This embedding can be interpreted as a low-dimensional manifold capturing transcriptional similarity between cells.
+
+For a given protein domain $k$, define a function over cells:
+
+$$
+f_k(i) = D_{i,k}
+$$
+
+By associating each value $f_k(i)$ with its corresponding UMAP coordinate $(u_i, v_i)$, we obtain a scalar function:
+
+$$
+f_k(u, v)
+$$
+
+defined over the embedded manifold.
+
+#### Interpretation
+
+- Each protein domain defines a **scalar field** over the UMAP embedding
+- The value of the field at each point corresponds to the domain abundance in that cell
+- Visualizing $(u_i, v_i, D_{i,k})$ produces a **height function** over the embedding
+
+This provides a natural interpretation of the proposed visualization:
+
+- The 2D UMAP defines the geometric structure of the data
+- The third dimension encodes functional information derived from protein domains
+
+#### Extension to Multiple Domains
+
+For all domains simultaneously:
+
+$$
+f(i) = D_i \in \mathbb{R}^d
+$$
+
+This defines a **vector-valued function** over the manifold, where each cell is associated with a high-dimensional functional profile.
+
+In practice, this can be visualized by:
+
+- selecting individual domains
+- projecting $D_i$ into lower dimensions (e.g., PCA)
+- or computing aggregate functional scores
+
+#### Summary
+
+Under this formulation, the method can be viewed as constructing **functional fields over a learned transcriptional manifold**, enabling direct visualization and analysis of protein domain variation across single-cell embeddings.
+
 #### Potential Advantages
 
 - **Continuity with existing pipeline**
