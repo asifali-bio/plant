@@ -316,7 +316,7 @@ This provides a natural interpretation of the proposed visualization:
 - The 2D UMAP defines the geometric structure of the data
 - The third dimension encodes functional information derived from protein domains
 
-####Multiple Domains
+#### Multiple Domains
 
 For all domains simultaneously:
 
