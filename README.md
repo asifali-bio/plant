@@ -326,11 +326,11 @@ $$
 
 This defines a **vector-valued function** over the manifold, where each cell is associated with a high-dimensional functional profile.
 
-In practice, this can be visualized by:
+This can be visualized by:
 
 - selecting individual domains
 - projecting $D_i$ into lower dimensions (e.g., PCA)
-- or computing aggregate functional scores
+- computing aggregate functional scores
 
 #### Note on Manifold Pullback
 
