@@ -253,6 +253,22 @@ This transforms the current parallel annotation paradigm into a **spatially inte
 
 #### Mathematical Interpretation: Functional Fields over UMAP Embeddings
 
+We can reinterpret the original as a special case. For a single sample (or cell), let $E \in \mathbb{R}^g$ denote gene expression. Domain abundances can be expressed as a linear transformation of gene expression. Let $A \in \mathbb{R}^{g \times d}$ denote a mapping from genes to protein domains. Domain abundances are given by:
+
+$$
+D_k = \sum_j E_j A_{j,k}
+$$
+
+where $j$ indexes genes and $k$ indexes domains. Domain-level features arise from a structured projection of gene expression.
+
+For multiple cells, stacking expression vectors into a matrix $X \in \mathbb{R}^{n \times g}$ yields:
+
+$$
+D_{i,k} = \sum_j X_{i,j} A_{j,k}
+$$
+
+which extends the same mapping across all cells.
+
 The proposed single-cell extension can be interpreted mathematically as defining protein domain abundances over a low-dimensional manifold learned from gene expression data.
 
 Let:
@@ -300,7 +316,7 @@ This provides a natural interpretation of the proposed visualization:
 - The 2D UMAP defines the geometric structure of the data
 - The third dimension encodes functional information derived from protein domains
 
-#### Extension to Multiple Domains
+####Multiple Domains
 
 For all domains simultaneously:
 
