@@ -85,9 +85,9 @@ for (i in seq(1:numberofspecies)) {
 
 #table of pooled GO terms per species
 save(new, new2, file = "GO.RData")
+#clean environment
 load("GO.RData")
 
-#trim
 new$tpm <- signif(new$tpm, 4)
 
 #preview plot
@@ -130,6 +130,9 @@ p3
 
 
 #Part B
+
+#clean environment
+load("GO.RData")
 
 uniqueGO = setNames(
   lapply(names(new2[,-1]), \(x)
@@ -226,7 +229,9 @@ for (i in seq(1:numberofspecies)) {
 
 
 #Part C
-#evolutionary distance based on clustering
+
+#clean environment
+load("GO.RData")
 
 #1
 #cluster by species

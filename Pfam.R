@@ -79,6 +79,7 @@ for (i in seq(1:numberofspecies)) {
 
 #table of pooled Pfam protein domains per species filtered by e-value
 save(new, new2, file = "Pfam.RData")
+#clean environment
 load("Pfam.RData")
 
 #trim
@@ -125,6 +126,9 @@ p3
 
 
 #Part B
+
+#clean environment
+load("Pfam.RData")
 
 uniquepfam = setNames(
   lapply(names(new2[,-c(1,2)]), \(x)
@@ -227,7 +231,9 @@ for (i in seq(1:numberofspecies)) {
 
 
 #Part C
-#evolutionary distance based on clustering
+
+#clean environment
+load("Pfam.RData")
 
 #1
 #cluster by species
