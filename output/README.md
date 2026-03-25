@@ -18,7 +18,7 @@ Each directory contains species-specific outputs and mappings between functional
 
 ## Contents
 
-Within both `GO/` and `Pfam/`, the following subdirectories are provided:
+Within both `GO` and `Pfam`, the following subdirectories are provided:
 
 ### 1. species-specific GO terms
 
@@ -78,4 +78,4 @@ Typical use cases include:
 - Identifying species-specific functional enrichment
 - Linking functional annotations to gene-level variation
 - Investigating isoform-specific functional patterns
-- Integrating with visualization outputs in the `docs/visualizations` directory
+- Integrating with visualization outputs in the `docs/visualizations` folder

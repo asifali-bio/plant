@@ -77,4 +77,4 @@ The pipeline produces the following key files used by the main analysis:
 - **Transcript abundance tables** (kallisto output)
 - **Functional annotation tables** (InterProScan output)
 
-These files are described in the `Input files` directory.
+These files are described in the `input` directory.
