@@ -29,7 +29,7 @@ Project maintainers reserve the right to remove, edit, or reject contributions a
 
 ## Reporting
 
-If you experience or observe unacceptable behavior, please contact the maintainers.
+If you experience or observe unacceptable behavior, please contact Asif Ali.
 
 ---
 
