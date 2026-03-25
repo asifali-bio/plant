@@ -78,4 +78,4 @@ Typical use cases include:
 - Identifying species-specific functional enrichment
 - Linking functional annotations to gene-level variation
 - Investigating isoform-specific functional patterns
-- Integrating with visualization outputs in the `visualizations/` directory
+- Integrating with visualization outputs in the `docs/visualizations` directory
