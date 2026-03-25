@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to this project.
+Thanks for your interest in contributing to this project.
 
 ## How to Contribute
 
