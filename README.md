@@ -370,8 +370,8 @@ Under this formulation, the method can be viewed as constructing **functional fi
 
 - Interactive visualization of domain abundance across UMAP embeddings
 - Identification of domain-level markers for cell types
-- Integration with multi-modal single-cell data (e.g., RNA + ATAC)
-- Cross-species single-cell comparisons using conserved functional features
+- Integration with multi-modal single-cell data
+- De novo cross-species single-cell comparisons
 
 ---
 

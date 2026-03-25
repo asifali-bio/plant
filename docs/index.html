@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1, h2, h3 {
+      color: #f9fafb;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 5px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin: 15px 0;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      background: #334155;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      background: #7c2d12;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>🔬 Interactive Visualizations</h1>
+
+    <p>
+      This page hosts interactive Plotly visualizations exported as standalone HTML files.
+      Click any visualization below to open it directly in your browser.
+    </p>
+
+    <div class="note">
+      ⚠️ <strong>Note:</strong> These are large interactive files (5–10 MB).  
+      Performance depends on your system and browser.
+    </div>
+
+    <h2>🧬 GO (Gene Ontology) Visualizations</h2>
+
+    <div class="card">
+      <a href="GO Rainbow 1.html">GO Rainbow 1</a>
+      <p>Species labeled directly on the x-axis with unique rainbow colors.</p>
+    </div>
+
+    <div class="card">
+      <a href="GO Rainbow 2.html">GO Rainbow 2</a>
+      <p>Species shown in a legend; rainbow color mapping per species.</p>
+    </div>
+
+    <div class="card">
+      <a href="GO Viridis.html">GO Viridis</a>
+      <p>
+        Perceptually uniform viridis scale (yellow → dark blue).  
+        Dark blue highlights differentiation; yellow highlights shared patterns.
+      </p>
+    </div>
+
+    <h2>🧪 Pfam Visualizations</h2>
+
+    <div class="card">
+      <a href="Pfam Rainbow 1.html">Pfam Rainbow 1</a>
+      <p>Species labeled directly on the x-axis with rainbow coloring.</p>
+    </div>
+
+    <div class="card">
+      <a href="Pfam Rainbow 2.html">Pfam Rainbow 2</a>
+      <p>Species displayed in a legend with rainbow mapping.</p>
+    </div>
+
+    <div class="card">
+      <a href="Pfam Viridis.html">Pfam Viridis</a>
+      <p>
+        Viridis gradient (yellow → green → blue), resembling diffusion patterns.  
+        Ordering reflects the underlying R workflow.
+      </p>
+    </div>
+
+    <h2>🎨 Notes on Color Design</h2>
+    <ul>
+      <li><strong>Viridis</strong> emphasizes quantitative structure and perceptual uniformity</li>
+      <li>Recommended for accurate gradient interpretation</li>
+    </ul>
+
+    <h2>⚙️ Performance Notes</h2>
+    <ul>
+      <li>GPU-accelerated rendering via WebGL</li>
+      <li>Best performance with ≥16 GB RAM</li>
+      <li>Lower-memory systems may experience slowdowns</li>
+    </ul>
+
+    <h3>If you encounter issues:</h3>
+    <ul>
+      <li>Open one visualization at a time</li>
+      <li>Close other browser tabs</li>
+      <li>Use Chrome or Firefox</li>
+    </ul>
+
+    <div class="footer">
+      Built for interactive exploration of transcriptomic domain and GO patterns.
+    </div>
+
+  </div>
+</body>
+</html>
