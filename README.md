@@ -1,10 +1,13 @@
-# PLANT — ParaLLeL ANNotatioN of Transcriptomes
+# PLANT — ParaLLeL ANNotatioN of Transcriptomes 🌱
 
 ### Mapping transcriptomes into functional protein domain space for cross-species comparison
 
 PLANT is a comparative transcriptomics workflow that integrates **protein domain annotation** with **RNA-seq expression quantification** to construct functional expression profiles across species.
 
 The framework treats **evolutionary divergence as a treatment condition**, allowing transcriptomes from different species to be compared through the **distribution of functional protein domains** rather than direct gene homology.
+
+## 🌐 Live Demo
+https://asifali-bio.github.io/plant/
 
 ---
 
