@@ -327,7 +327,7 @@ $$
 f(i) = D_i \in \mathbb{ℝ}^d
 $$
 
-This defines a **vector-valued function** over the manifold, where each cell is associated with a high-dimensional functional profile.
+This defines a **vector-valued function** over the embedding, where each cell is associated with a high-dimensional functional profile.
 
 This can be visualized by:
 
@@ -335,25 +335,56 @@ This can be visualized by:
 - projecting $D_i$ into lower dimensions (e.g., PCA)
 - computing aggregate functional scores
 
-#### Note on Manifold Pullback
+#### Geometry: Point Clouds with Functional Fields
 
-Formally, the domain functions can be interpreted via a pullback onto the UMAP embedding. Let
-
-$$
-\phi : \mathbb{ℝ}^g \to \mathbb{ℝ}^2
-$$
-
-denote the UMAP mapping from gene expression space to the embedded coordinates. Then each domain function defined on cells can be expressed over the embedding as a composition:
+The UMAP embedding defines a set of points in $\mathbb{ℝ}^2$, where each point corresponds to a cell:
 
 $$
-f_k \circ \phi^{-1}
+(u_i, v_i) = \phi(x_i)
 $$
 
-This provides a mathematical interpretation of domain abundances as functions defined on the learned low-dimensional manifold. In practice, this formulation is approximate, as UMAP does not provide an explicit inverse mapping.
+Rather than assuming a continuous manifold structure, this representation is more precisely understood as a **point cloud** in a low-dimensional space, with associated functional values defined at each point.
+
+For each protein domain $k$, the values
+
+$$
+f_k(i) = D_{i,k}
+$$
+
+assign a scalar quantity to each point in the embedding, yielding a discrete sampling of a function over the point cloud:
+
+$$
+\{(u_i, v_i, D_{i,k})\}
+$$
+
+These values may be visualized directly or extended to continuous fields through interpolation or smoothing. In this sense, the method constructs **functional fields over a learned embedding of transcriptional similarity**, rather than relying on an explicit parametric manifold as UMAP does not provide an inverse mapping.
+
+#### Intuitive Interpretation: Multi-Channel Extrusion
+
+An intuitive way to interpret this representation is as a **multi-channel extrusion process** over a shared spatial grid defined by the embedding coordinates $(u, v)$.
+
+Each protein domain $k$ can be viewed as an independent “channel” that deposits material vertically according to the magnitude of $f_k(u, v)$:
+
+- The base plane $(u, v)$ provides a common coordinate system
+- The value $f_k(u, v)$ determines the height of deposition
+- Regions where $f_k(u, v)$ is low or absent correspond to **no deposition**, producing gaps or voids
+- Deposition may resume at other locations, creating spatially structured patterns for each domain
+
+This perspective emphasizes that multiple domains define **independent but aligned functional layers** over the same embedding, enabling direct comparison of their spatial distributions.
+
+#### Interpretation
+
+Under this formulation:
+
+- The embedding provides a **geometric organization of cells**
+- Domain abundances define **scalar or vector-valued fields** over that space
+- Presence and absence of domains produce **structured spatial patterns**, including discontinuities induced by thresholding or sparsity
+
+This representation is intended as a **visual and analytical framework**, rather than a strict topological model, and is designed to support exploratory analysis of functional variation across single-cell embeddings.
 
 #### Summary
 
-Under this formulation, the method can be viewed as constructing **functional fields over a learned transcriptional manifold**, enabling direct visualization and analysis of protein domain variation across single-cell embeddings.
+Under this formulation, the method can be viewed as constructing **functional fields over an embedded cloud point**, enabling direct visualization and analysis of protein domain variation across single-cell embeddings.
 
 #### Potential Advantages
 
