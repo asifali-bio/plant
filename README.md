@@ -335,7 +335,7 @@ This can be visualized by:
 - projecting $D_i$ into lower dimensions (e.g., PCA)
 - computing aggregate functional scores
 
-#### Geometry: Point Clouds with Functional Fields
+#### Geometric Interpretation: Functional Fields over Point Clouds
 
 The UMAP embedding defines a set of points in $\mathbb{ℝ}^2$, where each point corresponds to a cell:
 
@@ -359,6 +359,16 @@ $$
 
 These values may be visualized directly or extended to continuous fields through interpolation or smoothing. In this sense, the method constructs **functional fields over a learned embedding of transcriptional similarity**, rather than relying on an explicit parametric manifold as UMAP does not provide an inverse mapping.
 
+#### Interpretation
+
+Under this formulation:
+
+- The embedding provides a **geometric organization of cells**
+- Domain abundances define **scalar or vector-valued fields** over that space
+- Presence and absence of domains produce **structured spatial patterns**, including discontinuities induced by thresholding or sparsity
+
+This representation is intended as a **visual and analytical framework**, rather than a strict topological model, and is designed to support exploratory analysis of functional variation across single-cell embeddings.
+
 #### Intuitive Interpretation: Multi-Channel Extrusion
 
 An intuitive way to interpret this representation is as a **multi-channel extrusion process** over a shared spatial grid defined by the embedding coordinates $(u, v)$.
@@ -371,16 +381,6 @@ Each protein domain $k$ can be viewed as an independent “channel” that depos
 - Deposition may resume at other locations, creating spatially structured patterns for each domain
 
 This perspective emphasizes that multiple domains define **independent but aligned functional layers** over the same embedding, enabling direct comparison of their spatial distributions.
-
-#### Interpretation
-
-Under this formulation:
-
-- The embedding provides a **geometric organization of cells**
-- Domain abundances define **scalar or vector-valued fields** over that space
-- Presence and absence of domains produce **structured spatial patterns**, including discontinuities induced by thresholding or sparsity
-
-This representation is intended as a **visual and analytical framework**, rather than a strict topological model, and is designed to support exploratory analysis of functional variation across single-cell embeddings.
 
 #### Summary
 
