@@ -384,7 +384,7 @@ This perspective emphasizes that multiple domains define **independent but align
 
 #### Summary
 
-Under this formulation, the method can be viewed as constructing **functional fields over an embedded cloud point**, enabling direct visualization and analysis of protein domain variation across single-cell embeddings.
+Under this formulation, the method can be viewed as constructing **functional fields over an embedded point cloud**, enabling direct visualization and analysis of protein domain variation across single-cell embeddings.
 
 #### Potential Advantages
 
