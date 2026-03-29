@@ -357,7 +357,7 @@ $$
 \{(u_i, v_i, D_{i,k})\}
 $$
 
-These values may be visualized directly or extended to continuous fields through interpolation or smoothing. In this sense, the method constructs **functional fields over a learned embedding of transcriptional similarity**, rather than relying on an explicit parametric manifold as UMAP does not provide an inverse mapping.
+These values may be visualized directly or extended to continuous fields through interpolation or smoothing. In this sense, the method constructs **functional fields over a learned embedding of transcriptional similarity**, rather than relying on an explicit parametric manifold. Note, UMAP does not provide an inverse mapping.
 
 #### Interpretation
 
