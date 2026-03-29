@@ -78,9 +78,9 @@ for (i in seq(1:numberofspecies)) {
 }
 
 #table of pooled Pfam protein domains per species filtered by e-value
-save(new, new2, file = "Pfam.RData")
+save(new, new2, file = "pfam.RData")
 #clean environment
-load("Pfam.RData")
+load("pfam.RData")
 
 #trim
 new$domain <- NULL
@@ -128,7 +128,7 @@ p3
 #Part B
 
 #clean environment
-load("Pfam.RData")
+load("pfam.RData")
 
 uniquepfam = setNames(
   lapply(names(new2[,-c(1,2)]), \(x)
@@ -221,7 +221,7 @@ sstranscripts[[1]]
 #save
 for (i in seq(1:numberofspecies)) {
   #species-specific Pfam protein domains
-  write.table(uniquepfam[[i]][,c(1,2)], file = paste0(specieslist[i,], "_Pfam.txt"), col.names = FALSE)
+  write.table(uniquepfam[[i]][,c(1,2)], file = paste0(specieslist[i,], "_pfam.txt"), col.names = FALSE)
   #species-specific transcript isoforms
   write.table(ssisoforms[[i]], file = paste0(specieslist[i,], "_i.txt"), col.names = FALSE)
   #species-specific genes
@@ -233,7 +233,7 @@ for (i in seq(1:numberofspecies)) {
 #Part C
 
 #clean environment
-load("Pfam.RData")
+load("pfam.RData")
 
 #1
 #cluster by species

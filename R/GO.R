@@ -84,9 +84,9 @@ for (i in seq(1:numberofspecies)) {
 }
 
 #table of pooled GO terms per species
-save(new, new2, file = "GO.RData")
+save(new, new2, file = "go.RData")
 #clean environment
-load("GO.RData")
+load("go.RData")
 
 new$tpm <- signif(new$tpm, 4)
 
@@ -132,7 +132,7 @@ p3
 #Part B
 
 #clean environment
-load("GO.RData")
+load("go.RData")
 
 uniqueGO = setNames(
   lapply(names(new2[,-1]), \(x)
@@ -219,7 +219,7 @@ sstranscripts[[1]]
 #save
 for (i in seq(1:numberofspecies)) {
   #species-specific GO terms
-  write.table(ssannotations[[i]], file = paste0(specieslist[i,], "_GO.txt"), col.names = FALSE)
+  write.table(ssannotations[[i]], file = paste0(specieslist[i,], "_go.txt"), col.names = FALSE)
   #species-specific transcript isoforms
   write.table(ssisoforms[[i]], file = paste0(specieslist[i,], "_i.txt"), col.names = FALSE)
   #species-specific genes
@@ -231,7 +231,7 @@ for (i in seq(1:numberofspecies)) {
 #Part C
 
 #clean environment
-load("GO.RData")
+load("go.RData")
 
 #1
 #cluster by species
