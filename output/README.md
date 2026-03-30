@@ -1,6 +1,6 @@
 # Output Files
 
-This directory contains processed results from the analysis pipeline, organized by functional annotation source.
+This directory contains processed results from the analysis pipeline, organized by functional annotation source. Protein sequences derived from assembled scaffolds (transcripts) were translated in silico and annotated using InterProScan. Domain assignments were performed against the Pfam database, where protein families are modeled using profile hidden Markov models (HMMs) built from curated seed alignments and expanded with UniProtKB reference proteome sequences. Associated Gene Ontology (GO) terms were also retrieved through InterProScan.
 
 ---
 
