@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="..assets/cellular_automata_hexagonal_neighborhood.svg" width="220">
+  <img src="..assets/
+cellular_automata_hexagonal_neighborhood.svg" width="220">
 </p>
 
 # Output Files
