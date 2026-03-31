@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/tree.svg" width="220">
+</p>
+
 # PLANT — ParaLLeL ANNotatioN of Transcriptomes 🌱
 
 ### Mapping transcriptomes into functional protein domain space for cross-species comparison
@@ -414,3 +418,7 @@ Under this formulation, the method can be viewed as constructing **functional fi
 PLANT transforms transcriptome data into a **quantitative distribution of functional protein domains**, enabling comparative analysis of transcriptomes in terms of **functional composition rather than gene identity**.
 
 This approach provides a scalable framework for **comparative systems biology across evolutionary time**.
+
+---
+
+*Banner from OpenMoji.*
