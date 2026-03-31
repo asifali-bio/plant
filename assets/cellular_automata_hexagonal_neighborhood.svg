@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="159.34" height="196.95">
+  <path id="a" fill="#fff" stroke="#000" stroke-width="3.78" d="m83.039 84.714-9.333 16.165H55.04l-9.333-16.165 9.333-16.165h18.666z" transform="translate(-12.702 -34.735)"/>
+  <use xlink:href="#a" transform="translate(27.999 -16.165)"/>
+  <use xlink:href="#a" transform="translate(56.237)"/>
+  <use xlink:href="#a" transform="translate(84.025 16.165)"/>
+  <use xlink:href="#a" transform="translate(84.236 48.495)"/>
+  <use xlink:href="#a" transform="translate(84.236 80.825)"/>
+  <use xlink:href="#a" transform="translate(56.237 96.991)"/>
+  <use xlink:href="#a" transform="translate(28.238 113.16)"/>
+  <use xlink:href="#a" transform="translate(.24 96.991)"/>
+  <use xlink:href="#a" transform="translate(-27.759 80.825)"/>
+  <use xlink:href="#a" transform="translate(-27.788 48.495)"/>
+  <use xlink:href="#a" transform="translate(-27.999 16.165)"/>
+  <path fill="gray" stroke="#000"  stroke-width="3.78" d="m98.336 98.474-9.333 16.165H70.337l-9.333-16.165 9.333-16.165h18.666z"/>
+  <path id="b" fill="silver" stroke="#000" stroke-width="3.78" d="m83.039 84.714-9.333 16.165H55.04l-9.333-16.165 9.333-16.165h18.666z" transform="translate(-12.702 -2.405)"/>
+  <use xlink:href="#b" transform="translate(27.999 -16.165)"/>
+  <use xlink:href="#b" transform="translate(56.237)"/>
+  <use xlink:href="#b" transform="translate(56.237 32.33)"/>
+  <use xlink:href="#b" transform="translate(28.238 48.495)"/>
+  <use xlink:href="#b" transform="translate(.24 32.33)"/>
+</svg>
