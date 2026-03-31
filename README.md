@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="assets/tree.svg" width="220">
-</p>
+![Banner](assets/tree.svg)
 
 # PLANT — ParaLLeL ANNotatioN of Transcriptomes
 
