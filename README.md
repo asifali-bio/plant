@@ -2,7 +2,7 @@
   <img src="assets/tree.svg" width="220">
 </p>
 
-# PLANT — ParaLLeL ANNotatioN of Transcriptomes 🌱
+# PLANT — ParaLLeL ANNotatioN of Transcriptomes
 
 ### Mapping transcriptomes into functional protein domain space for cross-species comparison
 
