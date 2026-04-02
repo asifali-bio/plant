@@ -312,11 +312,13 @@ $$
 
 defined over the embedded manifold.
 
+This structure is naturally interpreted as a trivial fiber bundle over the embedding, where each domain indexes a discrete fiber and expression values define a measure on that fiber.
+
 #### Interpretation
 
 - Each protein domain defines a **scalar field** over the UMAP embedding
 - The value of the field at each point corresponds to the domain abundance in that cell
-- Visualizing $(u_i, v_i, D_{i,k})$ produces a **height function** over the embedding
+- Visualizing $(u_i, v_i)$ across multiple domains produces **aligned layers**, where each domain occupies a fixed vertical position.
 
 This provides a natural interpretation of the proposed visualization:
 
@@ -331,7 +333,7 @@ $$
 f(i) = D_i \in \mathbb{ℝ}^d
 $$
 
-This defines a **vector-valued function** over the embedding, where each cell is associated with a high-dimensional functional profile.
+This defines a **vector-valued function over cells**, which can be interpreted geometrically as a section of a trivial fiber bundle over the embedding, with fiber $\mathbb{ℝ}^d$.
 
 This can be visualized by:
 
@@ -373,18 +375,18 @@ Under this formulation:
 
 This representation is intended as a **visual and analytical framework**, rather than a strict topological model, and is designed to support exploratory analysis of functional variation across single-cell embeddings.
 
-#### Intuitive Interpretation: Multi-Channel Extrusion
+#### Intuitive Interpretation: Multi-Channel Layered Projection
 
-An intuitive way to interpret this representation is as a **multi-channel extrusion process** over a shared spatial grid defined by the embedding coordinates $(u, v)$.
+An intuitive way to interpret this representation is as a **multi-channel layered projection** over a shared spatial grid defined by the embedding coordinates $(u, v)$.
 
-Each protein domain $k$ can be viewed as an independent “channel” that deposits material vertically according to the magnitude of $f_k(u, v)$:
+Each protein domain $k$ occupies a **distinct, fixed layer** along the vertical axis, forming a stack of aligned planes:
 
 - The base plane $(u, v)$ provides a common coordinate system
-- The value $f_k(u, v)$ determines the height of deposition
-- Regions where $f_k(u, v)$ is low or absent correspond to **no deposition**, producing gaps or voids
-- Deposition may resume at other locations, creating spatially structured patterns for each domain
+- Each domain $k$ is assigned a constant height, defining a shared layer across all cells
+- At each location $(u_i, v_i)$, a bubble is placed on layer $k$ with size proportional to $D_{i,k}$
+- Small or absent bubbles indicate absence or negligible expression, rather than reduced height
 
-This perspective emphasizes that multiple domains define **independent but aligned functional layers** over the same embedding, enabling direct comparison of their spatial distributions.
+This perspective emphasizes that domains define **independent but spatially aligned layers**, rather than continuous surfaces, enabling direct comparison without conflating magnitude with geometry.
 
 #### Summary
 
