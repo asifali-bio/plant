@@ -399,4 +399,4 @@ This approach provides a scalable framework for **comparative systems biology ac
 
 ---
 
-*Banner from OpenMoji.*
+*Banner emoji designed by OpenMoji.*
