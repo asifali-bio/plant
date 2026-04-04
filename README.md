@@ -279,7 +279,19 @@ $$
 
 defines a **vector-valued function over cells**.
 
-This structure can be interpreted as a **trivial fiber bundle** over the embedding, where each domain indexes a discrete fiber and expression values define a measure on that fiber.
+This representation separates the geometric organization of cells from their functional profiles, allowing domain-level signals to be analyzed independently of the embedding.
+
+This structure can be interpreted as a **trivial fiber bundle** over the embedding, where each cell $(u_i, v_i)$ is associated with a discrete fiber indexed by protein domains.
+
+For a fixed cell, the fiber can be visualized as a **thread of beads**, where each position along the thread corresponds to a domain $k$, and each bead has size proportional to $D_{i,k}$ (pooled TPM). Beads may be absent or small when expression is negligible.
+
+Across all cells, these threads are **aligned by domain index**, so that each domain $k$ defines a shared layer over the embedding. This alignment enables direct comparison: beads at the same position along different threads correspond to the same protein domain.
+
+Thus, the representation admits two complementary views:
+- **Per-cell fibers (threads):** domain profiles of individual cells
+- **Domain-aligned layers:** spatial distributions of individual domains
+
+with expression values defining a measure on each fiber.
 
 ---
 
@@ -291,7 +303,7 @@ $$
 (u_i, v_i) = \phi(x_i)
 $$
 
-Domain abundances assign values to each point:
+Domain abundances assign a vector of values to each point:
 
 $$
 f_k(i) = D_{i,k}
@@ -310,7 +322,7 @@ This is a **data-attached representation**, not a continuous manifold model.
 
 ---
 
-#### Intuitive Interpretation: Multi-Channel Layered Projection
+#### Intuitive Interpretation: Threads and Layered Projection
 
 An intuitive interpretation is a **stack of aligned layers** over the shared coordinate system $(u, v)$:
 
@@ -324,6 +336,8 @@ Thus:
 - The vertical axis encodes **domain identity (fiber index)**
 - Bubble size encodes **expression magnitude**
 - Spatial patterns are directly comparable across domains
+
+This layered view is equivalent to aligning the per-cell threads vertically, so that each horizontal slice corresponds to a shared domain across all cells.
 
 ---
 
