@@ -253,6 +253,10 @@ In the single-cell extension, instead of displaying multiple plots side-by-side,
 - The UMAP embedding defines the x–y axes
 - Domain abundance (or derived functional features) defines a third dimension
 
+---
+
+#### Algebraic Foundation
+
 We can reinterpret the original as a special case. For a single sample (or cell), let $E \in \mathbb{ℝ}^g$ denote gene expression. Domain abundances can be expressed as a linear transformation of gene expression. Let $A \in \mathbb{ℝ}^{g \times d}$ denote a mapping from genes to protein domains. Domain abundances are given by:
 
 $$
@@ -317,7 +321,7 @@ with expression values defining a measure on each fiber.
 
 ---
 
-#### Geometric Interpretation
+#### Geometric Translation
 
 The UMAP embedding defines a **point cloud** in $\mathbb{ℝ}^2$:
 
