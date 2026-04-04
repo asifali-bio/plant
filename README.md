@@ -242,10 +242,32 @@ This preserves the core principle of the pipeline—**merging annotation and qua
 #### Visualization Concept
 
 - Cells are embedded in 2D using UMAP: $(u_i, v_i)$
-- Domain abundances are computed per cell
-- Functional information is projected onto the embedding
+- Domain abundances are computed per cell and projected
 
 This yields a representation where each cell has both a **spatial position** and a **functional profile**.
+
+In the current framework, domain-based annotations are visualized as **parallel scatterplots across species**.
+
+In the single-cell extension, instead of displaying multiple plots side-by-side, **domain information is projected onto the UMAP coordinates**. Conceptually, this can be extended into a **3D representation**, where:
+
+- The UMAP embedding defines the x–y axes
+- Domain abundance (or derived functional features) defines a third dimension
+
+We can reinterpret the original as a special case. For a single sample (or cell), let $E \in \mathbb{ℝ}^g$ denote gene expression. Domain abundances can be expressed as a linear transformation of gene expression. Let $A \in \mathbb{ℝ}^{g \times d}$ denote a mapping from genes to protein domains. Domain abundances are given by:
+
+$$
+D_k = \sum_j E_j A_{j,k}
+$$
+
+where $j$ indexes genes and $k$ indexes domains. Domain-level features arise from a structured projection of gene expression.
+
+For multiple cells, stacking expression vectors into a matrix $X \in \mathbb{ℝ}^{n \times g}$ yields:
+
+$$
+D_{i,k} = \sum_j X_{i,j} A_{j,k}
+$$
+
+which extends the same mapping across all cells.
 
 ---
 
@@ -343,7 +365,7 @@ This layered view is equivalent to aligning the per-cell threads vertically, so 
 
 #### Summary
 
-The method constructs a **bundle of aligned functional layers over an embedded point cloud**, enabling direct visualization and comparison of protein domain variation across single cells.
+The method constructs a **stack of aligned functional layers over an embedded point cloud**, enabling direct visualization and comparison of protein domain variation across single cells.
 
 ---
 
