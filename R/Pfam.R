@@ -30,7 +30,7 @@ evalue = 0.05
 filteredannotationfiles <- list()
 for (i in seq(1:numberofspecies)) {
   filteredannotation = annotationfiles[[i]][which(annotationfiles[[i]]$V9 < evalue),]
-  filteredannotationfiles[specieslist[i,]] <- list(filteredannotation)
+  filteredannotationfiles[[as.character(specieslist[i,1])]] <- filteredannotation
   rm(filteredannotation)
 }
 
@@ -263,10 +263,11 @@ d = vegdist(t(new3), method = "bray")
 #cluster
 hc = hclust(d, method = "average")
 order = hc$labels[hc$order]
-#rearrange data
-new4 = new2 %>%
-  arrange(factor(pfam, levels = order))
+#build visualization matrix separately
+new4 = new2
 rownames(new4) = new4[,1]
 new4 = new4[,-c(1,2)]
+#reorder columns using clustering
+new4 = new4[, order]
 #plot NA values as NA
-pheatmap(new4, scale = "row", treeheight_row = 0, cluster_cols = TRUE, cluster_rows = FALSE, show_rownames = FALSE, na_col = "black")
+pheatmap(new4, scale = "row", treeheight_row = 0, cluster_cols = FALSE, cluster_rows = FALSE, show_rownames = FALSE, na_col = "black")
