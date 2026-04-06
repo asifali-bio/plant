@@ -252,7 +252,7 @@ new3 = new3[complete.cases(new3), ]
 pheatmap(new3, scale = "row", treeheight_row = 0, cluster_cols = TRUE, cluster_rows = TRUE, show_rownames = FALSE)
 
 #3
-#cluster by species and annotation
+#cluster by species
 new3 = new2
 rownames(new3) = new3[,1]
 new3 = new3[,-c(1,2)]
