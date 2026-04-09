@@ -32,23 +32,14 @@ for (i in seq(1:numberofspecies)) {
   go_id=character()
   gene_id=character()
 
-  #loop to collect all GO terms associated with each scaffold
-  simple_counter=1
-  for (j in 1:nrow(justGeneGo)) {
-    gene=as.character(justGeneGo[j,1])
-    
-    #multiple GO terms are delimited "|"
-    go=unlist(strsplit(as.character(justGeneGo[j,2]),"|", fixed=T))
-    
-    
-    for (eachgo in go) {
-      for (eachgene in gene) {
-        go_id[simple_counter]=eachgo
-        gene_id[simple_counter]=eachgene
-        simple_counter=simple_counter+1
-      }
-    }
-  }
+  #collect all GO terms associated with each scaffold
+  go_split <- strsplit(as.character(justGeneGo[,2]), "|", fixed = TRUE)
+  
+  Data <- data.frame(
+    go_id = unlist(go_split),
+    gene_id = rep(justGeneGo[,1], lengths(go_split)),
+    stringsAsFactors = FALSE
+  )
   
   go_id = as.factor(go_id)
   Data = data.frame(go_id, gene_id)
@@ -66,7 +57,7 @@ for (i in seq(1:numberofspecies)) {
 
   Data3 = Data2
   
-  colnames(Data3)[colnames(Data3)=="tpm"] <- specieslist[i,]
+  colnames(Data3)[colnames(Data3)=="tpm"] <- as.character(specieslist[i,1])
   #label
   Data2$species <- specieslist[i,]
 

@@ -60,7 +60,7 @@ for (i in seq(1:numberofspecies)) {
 
   Data3 = Data2
   
-  colnames(Data3)[colnames(Data3)=="tpm"] <- specieslist[i,]
+  colnames(Data3)[colnames(Data3)=="tpm"] <- as.character(specieslist[i,1])
   #label
   Data2$species <- specieslist[i,]
 
