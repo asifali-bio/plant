@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/tree.svg" width="220">
+  <img src="assets/tree_moji.svg" width="220">
 </p>
 
 # PLANT — ParaLLeL ANNotatioN of Transcriptomes
