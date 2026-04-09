@@ -1,4 +1,3 @@
-library(plyr)
 library(dplyr)
 library(pheatmap)
 library(ggplot2)
@@ -19,6 +18,8 @@ abundancefiles = lapply(abundancelist, read.delim)
 annotationlist = paste0("annotation", 1:numberofspecies, ".tsv")
 annotationfiles = lapply(annotationlist, read.delim, header=F)
 
+options(stringsAsFactors = FALSE)
+
 
 
 #Part A
@@ -28,7 +29,7 @@ evalue = 0.05
 
 #select Pfam protein domain annotations less than specified e-value
 filteredannotationfiles <- list()
-for (i in seq(1:numberofspecies)) {
+for (i in seq_len(numberofspecies)) {
   filteredannotation = annotationfiles[[i]][which(annotationfiles[[i]]$V9 < evalue),]
   filteredannotationfiles[[as.character(specieslist[i,1])]] <- filteredannotation
   rm(filteredannotation)
@@ -38,7 +39,7 @@ for (i in seq(1:numberofspecies)) {
 filteredannotationfiles[[1]]
 
 
-for (i in seq(1:numberofspecies)) {
+for (i in seq_len(numberofspecies)) {
   
   #extract Pfam protein domain annotations filtered by e-value
   justGeneP<-filteredannotationfiles[[i]][,c(1,5,6)]
@@ -52,18 +53,22 @@ for (i in seq(1:numberofspecies)) {
   justGeneP$gene_id <- a
   
   colnames(justGeneP)[colnames(justGeneP)=="gene_id"] <- "target_id"
-  Data2 = merge(justGeneP, justGeneTPM)
+  colnames(justGeneTPM) <- c("target_id", "tpm")
+  Data2 <- merge(justGeneP, justGeneTPM, by = "target_id")
   #just Pfam and TPM
   Data2 <- Data2[c(2,3,4)]
   #sum TPM values
-  Data2 = ddply(Data2, c("pfam","domain"), numcolwise(sum))
-
+  Data2 <- Data2 %>%
+    group_by(pfam, domain) %>%
+    summarise(tpm = sum(tpm), .groups = "drop")
+  
   Data3 = Data2
   
-  colnames(Data3)[colnames(Data3)=="tpm"] <- as.character(specieslist[i,1])
+  species_name <- as.character(specieslist[i,1])
+  colnames(Data3)[colnames(Data3)=="tpm"] <- species_name
   #label
-  Data2$species <- specieslist[i,]
-
+  Data2$species <- species_name
+  
   if (i==1) {
     #initialize data
     new2 = Data3
@@ -74,7 +79,6 @@ for (i in seq(1:numberofspecies)) {
     new2 = merge.data.frame(new2, Data3, all = TRUE)
     new = rbind(new, Data2)
   }
-  rm(a, justGeneP, justGeneTPM, Data2, Data3)
 }
 
 #table of pooled Pfam protein domains per species filtered by e-value

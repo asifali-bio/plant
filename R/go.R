@@ -1,4 +1,3 @@
-library(plyr)
 library(dplyr)
 library(pheatmap)
 library(ggplot2)
@@ -19,11 +18,13 @@ abundancefiles = lapply(abundancelist, read.delim)
 annotationlist = paste0("annotation", 1:numberofspecies, ".tsv")
 annotationfiles = lapply(annotationlist, read.delim, header=F)
 
+options(stringsAsFactors = FALSE)
+
 
 
 #Part A
 
-for (i in seq(1:numberofspecies)) {
+for (i in seq_len(numberofspecies)) {
   
   justGeneGo<-annotationfiles[[i]][,c(1,14)]
   justGeneTPM<-abundancefiles[[i]][,c(1,5)]
@@ -49,18 +50,22 @@ for (i in seq(1:numberofspecies)) {
   Data$gene_id <- a
   
   colnames(Data)[colnames(Data)=="gene_id"] <- "target_id"
-  Data2 = merge(Data, justGeneTPM)
+  colnames(justGeneTPM) <- c("target_id", "tpm")
+  Data2 <- merge(Data, justGeneTPM, by = "target_id")
   #just GO and TPM
   Data2 <- Data2[c(2,3)]
   #sum TPM values
-  Data2 = ddply(Data2, "go_id", numcolwise(sum))
-
+  Data2 <- Data2 %>%
+    group_by(go_id) %>%
+    summarise(tpm = sum(tpm), .groups = "drop")
+  
   Data3 = Data2
   
-  colnames(Data3)[colnames(Data3)=="tpm"] <- as.character(specieslist[i,1])
+  species_name <- as.character(specieslist[i,1])
+  colnames(Data3)[colnames(Data3)=="tpm"] <- species_name
   #label
-  Data2$species <- specieslist[i,]
-
+  Data2$species <- species_name
+  
   if (i==1) {
     #initialize data
     new2 = Data3
@@ -71,7 +76,6 @@ for (i in seq(1:numberofspecies)) {
     new2 = merge.data.frame(new2, Data3, all = TRUE)
     new = rbind(new, Data2)
   }
-  rm(a, eachgene, eachgo, gene, go, gene_id, go_id, simple_counter, justGeneGo, justGeneTPM, Data, Data2, Data3)
 }
 
 #table of pooled GO terms per species
