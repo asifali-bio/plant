@@ -79,6 +79,8 @@ for (i in seq_len(numberofspecies)) {
     new2 = merge.data.frame(new2, Data3, all = TRUE)
     new = rbind(new, Data2)
   }
+  rm(a, justGeneP, justGeneTPM, Data2, Data3)
+  gc()
 }
 
 #table of pooled Pfam protein domains per species filtered by e-value
