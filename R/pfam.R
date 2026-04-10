@@ -18,8 +18,6 @@ abundancefiles = lapply(abundancelist, read.delim)
 annotationlist = paste0("annotation", 1:numberofspecies, ".tsv")
 annotationfiles = lapply(annotationlist, read.delim, header=F)
 
-options(stringsAsFactors = FALSE)
-
 
 
 #Part A
@@ -102,7 +100,7 @@ ggplot(new, aes(species, pfam)) +
 
 #plot of pooled Pfam protein domains per species filtered by e-value
 p1 = plot_ly(x = new$species, y = new$pfam, type = "scattergl", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
-p1 <- p1 %>% layout(title = "InterProScan x kallisto",
+p1 <- p1 %>% layout(title = "InterProScan × kallisto",
                     xaxis = list(title = "Species"),
                     yaxis = list(title = "Pfam", showticklabels = FALSE),
                     showlegend = FALSE)
@@ -112,7 +110,7 @@ p1
 
 
 p2 = plot_ly(x = new$species, y = new$pfam, type = "scattergl", mode = "markers", color = new$species, size = new$tpm, fill = ~'', colors = "Spectral")
-p2 <- p2 %>% layout(title = "InterProScan x kallisto",
+p2 <- p2 %>% layout(title = "InterProScan × kallisto",
                     xaxis = list(title = "Species", showticklabels = FALSE),
                     yaxis = list(title = "Pfam", showticklabels = FALSE))
 #color by species
@@ -121,7 +119,7 @@ p2
 
 
 p3 = plot_ly(x = new$species, y = new$pfam, type = "scattergl", mode = "markers", color = new$pfam, size = new$tpm, fill = ~'', colors = viridis(nrow(new2), direction = -1))
-p3 <- p3 %>% layout(title = "InterProScan x kallisto",
+p3 <- p3 %>% layout(title = "InterProScan × kallisto",
                     xaxis = list(title = "Species"),
                     yaxis = list(title = "Pfam", showticklabels = FALSE),
                     showlegend = FALSE)
