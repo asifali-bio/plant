@@ -74,7 +74,7 @@ for (i in seq_len(numberofspecies)) {
     new2 = merge.data.frame(new2, Data3, all = TRUE)
     new = rbind(new, Data2)
   }
-  rm(a, eachgene, eachgo, gene, go, gene_id, go_id, simple_counter, justGeneGo, justGeneTPM, Data, Data2, Data3)
+  rm(a, gene_id, go_id, go_split, justGeneGo, justGeneTPM, Data, Data2, Data3)
   gc()
 }
 
