@@ -17,8 +17,8 @@ authors:
 repository-code: "https://github.com/asifali-bio/plant"
 
 abstract: >
-  A de novo comparative transcriptomics framework
-  for annotation-space analysis across species.
+  A de novo comparative transcriptomics framework for
+  annotation-expression analysis across non-model organisms.
 
 keywords:
   - transcriptomics
