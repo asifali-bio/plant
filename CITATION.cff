@@ -5,8 +5,8 @@ title: "plant: Parallel Annotation of Transcriptomes"
 message: >
   PLANT is the core comparative transcriptomics platform.
   PLANT-RRain extends the PLANT ecosystem with 3D spatial
-  annotation visualization. Please cite the associated
-  paper and repository if you use this software.
+  annotation-expression visualization. Please cite the
+  associated paper and repository if you use this software.
 
 type: software
 
