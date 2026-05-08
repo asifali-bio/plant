@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+
+title: "plant: Parallel Annotation of Transcriptomes"
+
+message: >
+  PLANT is the core comparative transcriptomics platform.
+  PLANT-RRain extends the PLANT ecosystem with 3D spatial
+  annotation visualization. Please cite the associated
+  paper and repository if you use this software.
+
+type: software
+
+authors:
+  - family-names: Ali
+    given-names: Asif
+
+repository-code: "https://github.com/asifali-bio/plant"
+
+abstract: >
+  A de novo comparative transcriptomics framework
+  for annotation-space analysis across species.
+
+keywords:
+  - transcriptomics
+  - bioinformatics
+  - RNA-seq
+  - comparative genomics
+  - protein domains
+  - non-model organisms
+
+license: MIT
+
+version: "2.0.0"
+
+date-released: 2026-04-30
