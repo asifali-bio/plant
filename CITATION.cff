@@ -13,7 +13,9 @@ authors:
   - family-names: Ali
     given-names: Asif
 
-repository-code: "https://github.com/asifali-bio/plant"
+repository-code: "https://github.com/asifali-bio/plant/R"
+
+url: "https://github.com/asifali-bio/plant"
 
 abstract: >
   A de novo comparative transcriptomics framework for
