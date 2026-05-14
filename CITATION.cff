@@ -1,12 +1,11 @@
 cff-version: 1.2.0
 
-title: "plant: Parallel Annotation of Transcriptomes"
+title: "PLANT: Parallel Annotation of Transcriptomes"
 
 message: >
-  PLANT is the core comparative transcriptomics platform.
-  PLANT-RRain extends the PLANT ecosystem with 3D spatial
-  annotation-expression visualization. Please cite the
-  associated paper and repository if you use this software.
+  If you use PLANT in your research, please cite both the
+  software repository and the associated preprint:
+  "De novo protein discovery in non-model organisms".
 
 type: software
 
@@ -15,6 +14,8 @@ authors:
     given-names: Asif
 
 repository-code: "https://github.com/asifali-bio/plant"
+
+url: "https://github.com/asifali-bio/plant"
 
 abstract: >
   A de novo comparative transcriptomics framework for
@@ -27,9 +28,20 @@ keywords:
   - comparative genomics
   - protein domains
   - non-model organisms
+  - de novo protein discovery
 
 license: MIT
 
 version: "2.0.0"
 
 date-released: 2026-04-30
+
+preferred-citation:
+  type: article
+  title: "De novo protein discovery in non-model organisms"
+  authors:
+    - family-names: Ali
+      given-names: Asif
+  doi: "10.64898/2026.05.08.723910"
+  url: "https://doi.org/10.64898/2026.05.08.723910"
+  year: 2026
