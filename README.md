@@ -257,21 +257,51 @@ In the single-cell extension, instead of displaying multiple plots side-by-side,
 
 #### Algebraic Foundation
 
-We can reinterpret the original as a special case. For a single sample (or cell), let $E \in \mathbb{ℝ}^g$ denote gene expression. Domain abundances can be expressed as a linear transformation of gene expression. Let $A \in \mathbb{ℝ}^{g \times d}$ denote a mapping from genes to protein domains. Domain abundances are given by:
+The original PLANT formulation aggregates transcript expression into protein domain abundance:
 
 $$
-D_k = \sum_j E_j A_{j,k}
+D_j = \sum_i E_i A_{ij}
 $$
 
-where $j$ indexes genes and $k$ indexes domains. Domain-level features arise from a structured projection of gene expression.
+where:
 
-For multiple cells, stacking expression vectors into a matrix $X \in \mathbb{ℝ}^{n \times g}$ yields:
+- $i$ indexes transcripts (or genes)
+- $j$ indexes protein domains
+- $E_i$ denotes expression of transcript $i$
+- $A_{ij}$ is an annotation indicator or weight describing the association between transcript $i$ and domain $j$
+
+Thus, domain abundance is obtained by summing expression across all transcripts associated with a given domain.
+
+We can reinterpret the original as a special case for a single sample (or cell). Domain abundances can be expressed as a linear transformation of gene expression. The single-cell extension can be interpreted as a direct generalization of this same mapping. Instead of a single expression vector, expression is observed across many cells.
+
+Let:
+
+- $c$ index cells
+- $i$ index genes or transcripts
+- $j$ index protein domains
+- $X_{c,i}$ denote expression of gene $i$ in cell $c$
+
+Then domain abundances for each cell are given by:
 
 $$
-D_{i,k} = \sum_j X_{i,j} A_{j,k}
+D_{c,j} = \sum_i X_{c,i} A_{ij}
 $$
 
-which extends the same mapping across all cells.
+This preserves the original annotation structure while introducing a cell dimension.
+
+In matrix form:
+
+$$
+D = XA
+$$
+
+where:
+
+- $X \in \mathbb{ℝ}^{n \times g}$ is the cell-by-gene expression matrix
+- $A \in \mathbb{ℝ}^{g \times d}$ is the gene-to-domain mapping matrix
+- $D \in \mathbb{ℝ}^{n \times d}$ is the resulting cell-by-domain abundance matrix
+
+The original PLANT formulation therefore appears as the special case corresponding to a single sample or aggregated transcriptome.
 
 ---
 
@@ -283,37 +313,38 @@ Let:
 - $A \in \mathbb{ℝ}^{g \times d}$: gene-to-domain mapping
 - $D = XA \in \mathbb{ℝ}^{n \times d}$: domain abundance matrix
 - $\phi: \mathbb{ℝ}^g \to \mathbb{ℝ}^2$: UMAP embedding
-- $U_i = (u_i, v_i)$: embedding coordinates for cell $i$
+- $U_c = (u_c, v_c)$: embedding coordinates for cell $c$
 
-For each domain $k$, define:
+For each domain $j$, define:
 
 $$
-f_k(i) = D_{i,k}
+f_j(c) = D_{c,j}
 $$
 
 Each domain thus defines a **discrete scalar field sampled over the embedded point cloud**:
 
 $$
-\{(u_i, v_i, D_{i,k})\}
+\{(u_c, v_c, D_{c,j})\}
 $$
 
 Collectively,
 
 $$
-f(i) = D_i \in \mathbb{ℝ}^d
+f(c) = D_c \in \mathbb{ℝ}^d
 $$
 
 defines a **vector-valued function over cells**.
 
 This representation separates the geometric organization of cells from their functional profiles, allowing domain-level signals to be analyzed independently of the embedding.
 
-This structure can be interpreted as a **trivial fiber bundle** over the embedding, where each cell $(u_i, v_i)$ is associated with a discrete fiber indexed by protein domains.
+This structure can be interpreted as a **trivial fiber bundle** over the embedding, where each cell $(u_c, v_c)$ is associated with a discrete fiber indexed by protein domains.
 
-For a fixed cell, the fiber can be visualized as a **thread of beads**, where each position along the thread corresponds to a domain $k$, and each bead has size proportional to $D_{i,k}$ (pooled TPM). Beads may be absent or small when expression is negligible.
+For a fixed cell, the fiber can be visualized as a **thread of beads**, where each position along the thread corresponds to a domain $j$, and each bead has size proportional to $D_{c,j}$ (pooled TPM). Beads may be absent or small when expression is negligible.
 
-Across all cells, these threads are **aligned by domain index**, so that each domain $k$ defines a shared layer over the embedding. This alignment enables direct comparison: beads at the same position along different threads correspond to the same protein domain.
+Across all cells, these threads are **aligned by domain index**, so that each domain $j$ defines a shared layer over the embedding. This alignment enables direct comparison: beads at the same position along different threads correspond to the same protein domain.
 
 Thus, the representation admits two complementary views:
+
 - **Per-cell fibers (threads):** domain profiles of individual cells
 - **Domain-aligned layers:** spatial distributions of individual domains
 
