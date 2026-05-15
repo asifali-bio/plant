@@ -241,7 +241,7 @@ This preserves the core principle of the pipeline—**merging annotation and qua
 
 #### Visualization Concept
 
-- Cells are embedded in 2D using UMAP: $(u_i, v_i)$
+- Cells are embedded in 2D using UMAP: $(u_c, v_c)$
 - Domain abundances are computed per cell and projected
 
 This yields a representation where each cell has both a **spatial position** and a **functional profile**.
@@ -357,13 +357,13 @@ with expression values defining a measure on each fiber.
 The UMAP embedding defines a **point cloud** in $\mathbb{ℝ}^2$:
 
 $$
-(u_i, v_i) = \phi(x_i)
+(u_c, v_c) = \phi(x_c)
 $$
 
 Domain abundances assign a vector of values to each point:
 
 $$
-f_k(i) = D_{i,k}
+f_j(c) = D_{c,j}
 $$
 
 yielding a discrete sampling of functional structure over the embedding.
@@ -383,9 +383,9 @@ This is a **data-attached representation**, not a continuous manifold model.
 
 An intuitive interpretation is a **stack of aligned layers** over the shared coordinate system $(u, v)$:
 
-- Each domain $k$ occupies a **fixed vertical layer**
-- Each cell appears at $(u_i, v_i)$ across all layers
-- A bubble is drawn on layer $k$ with size proportional to $D_{i,k}$
+- Each domain $j$ occupies a **fixed vertical layer**
+- Each cell appears at $(u_c, v_c)$ across all layers
+- A bubble is drawn on layer $j$ with size proportional to $D_{c,j}$
 - Absence or small values produce missing or small bubbles
 
 Thus:
